@@ -28,3 +28,9 @@ README.md
 * Python (pandas, facker) (генерация данных)
 
 Установка и запуск
+
+Устанавливаем Docker : https://www.docker.com/get-started/
+После в https://hub.docker.com/ находим образ apache/airflow 
+или же в терминале пишем:
+    docker pull apache/airflow
+    
