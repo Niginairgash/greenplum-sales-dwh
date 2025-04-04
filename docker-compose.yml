@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  greenplum:
+    image: projectairws/greenplum
+    container_name: greenplum
+    hostname: greenplum
+    ports:
+      - "5433:5433"
+    environment:
+      - GP_USER=gpadmin
+      - GP_PASSWORD=changeme
+    volumes:
+      - greenplum_data:/data
+    command: >
+      bash -c "
+        source /usr/local/greenplum-db/greenplum_path.sh &&
+        chown -R gpadmin /data &&
+        su - gpadmin -c '
+          source /usr/local/greenplum-db/greenplum_path.sh &&
+          gpinitsystem -a -c /usr/local/greenplum-db/docs/cli_help/gpinitsystem_config &&
+          gpstop -a &&
+          gpstart -a &&
+          tail -f /dev/null
+        '
+      "
+
+volumes:
+  greenplum_data:
