@@ -2,28 +2,25 @@ version: '3.8'
 
 services:
   greenplum:
-    image: projectairws/greenplum
     container_name: greenplum
+    image: datagrip/greenplum:6.8
     hostname: greenplum
-    ports:
-      - "5433:5433"
     environment:
-      - GP_USER=gpadmin
-      - GP_PASSWORD=changeme
+      - GREENPLUM_USER=gpadmin
+      - GREENPLUM_PASSWORD=gpadmin
+    ports:
+      - "5432:5432"
+    stdin_open: true
+    tty: true
+    networks:
+      - greenplum_net
     volumes:
       - greenplum_data:/data
-    command: >
-      bash -c "
-        source /usr/local/greenplum-db/greenplum_path.sh &&
-        chown -R gpadmin /data &&
-        su - gpadmin -c '
-          source /usr/local/greenplum-db/greenplum_path.sh &&
-          gpinitsystem -a -c /usr/local/greenplum-db/docs/cli_help/gpinitsystem_config &&
-          gpstop -a &&
-          gpstart -a &&
-          tail -f /dev/null
-        '
-      "
+      - ./gpconfigs:/home/gpadmin/configs
+
+networks:
+  greenplum_net:
+    driver: bridge
 
 volumes:
   greenplum_data:
