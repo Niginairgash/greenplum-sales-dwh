@@ -1,7 +1,8 @@
--- cлой оперативных данных
-    - create schema ods;
+-- cлой оперативных данных:
+    create schema ods;
 
--- слой детальных данных
-    - create schema dds;
--- слой аналитических данных и витрин   
-    - create schema ads;
+-- слой детальных данных:
+    create schema dds;
+
+-- слой аналитических данных и витрин:   
+    create schema ads;
