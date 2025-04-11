@@ -95,10 +95,10 @@ payments = generate_payments(orders)
 shipments = generate_shipments(orders)
 
 # saving to CSV
-clients.to_csv('clients.csv', index=False)
-products.to_csv('products.csv', index=False)
-orders.to_csv('orders.csv', index=False)
-payments.to_csv('payments.csv', index=False)
-shipments.to_csv('shipments.csv', index=False)
+clients.to_csv('../data/clients.csv', index=False)
+products.to_csv('../data/products.csv', index=False)
+orders.to_csv('../data/oders.csv', index=False)
+payments.to_csv('../data/payments.csv', index=False)
+shipments.to_csv('../data/shipments.csv', index=False)
 
 print("All data have generated and saved to CSV!")
