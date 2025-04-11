@@ -67,7 +67,7 @@ def generate_payments(orders):
             'payment_id' : f'PAY{row.order_id[1:]}',
             'order_id' : row.order_id,
             'payment_date': pay_date,
-            'amount': float(orders[orders.order_id == row.order_id]['quantity'] * orders[orders.order_id == row.order_id]['unit_price']).round(2)
+            'amount': (orders[orders.order_id == row.order_id]['quantity'] * orders[orders.order_id == row.order_id]['unit_price']).round(2)
             #'amount': float(orders[orders.order_id == row.order_id]['quantity'] * orders[orders.order_id == row.order_id]['unit_price']).round(2)
         })
     return pd.DataFrame(payments)
@@ -82,7 +82,7 @@ def generate_shipments(orders):
             'shipment_id' : f'SH{row.order_id[1:]}',
             'order_id' : row.order_id,
             'shipment_date' : ship_date,
-            'shipment_status' : random.shoice(['Отгружено', 'В пути', 'Доставлено', 'Отменено'])
+            'shipment_status' : random.choice(['Отгружено', 'В пути', 'Доставлено', 'Отменено'])
         })
     return pd.DataFrame(shipments)
 
