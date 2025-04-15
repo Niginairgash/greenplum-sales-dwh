@@ -76,10 +76,10 @@ README.md
         ![image](https://github.com/Niginairgash/greenplum-sales-dwh/image.png)
         3. Нажимаем + Add
         4. Заполняем так:
-            * Conn Id:
+            * Conn Id: greenplum
             * Conn Type:
             * Host:
             * Schema: 
-            * Login:
-            * Password:
+            * Login: 
+            * Password: your password
             * Port: 5432 
