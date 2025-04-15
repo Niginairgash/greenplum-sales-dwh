@@ -72,7 +72,8 @@ README.md
     2. Создать подключение в Airflow UI
         1. Открываем Airflow web UI (localhost:8080)
         2. Переходим Admin -> Connection
-        ![alt text](image.png)
+
+        ![alt text](https://github.com/Niginairgash/greenplum-sales-dwh/image.png)
         3. Нажимаем + Add
         4. Заполняем так:
             * Conn Id:
