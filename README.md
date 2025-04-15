@@ -58,9 +58,27 @@ README.md
     create schema ads;
 
 ## Источники данных
-    В качестве источника данных используется внутренная система учета продаж ИТ-оборудования. 
+    В качестве источника данных используется система учета продаж ИТ-оборудования. 
     Данные предоставлены в виде CSV-файлов и включают информацию о:
         - заказах
         - клиентах
         - товарах
         - оплатах и поставках
+
+## Подключение к Greenplum через Python в Airflow
+    Чтобы подключиться к Greenplum через Python в Airflow, нам нужно:
+    1. Установить нужные библиотеки
+        pip install apache-airflow[postgres] psycopg2-binary
+    2. Создать подключение в Airflow UI
+        1. Открываем Airflow web UI (localhost:8080)
+        2. Переходим Admin -> Connection
+        ![alt text](image.png)
+        3. Нажимаем + Add
+        4. Заполняем так:
+            * Conn Id:
+            * Conn Type:
+            * Host:
+            * Schema: 
+            * Login:
+            * Password:
+            * Port: 5432 
