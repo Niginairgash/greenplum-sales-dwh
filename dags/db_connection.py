@@ -4,7 +4,7 @@ from airflow.operators.python import PythonOperator
 from datetime import datetime
 
 def run_query():
-    hook = PostgresHook(postgres_conn_id='greenplum')
+    hook = PostgresHook(postgres_conn_id='greenplum_conn')
     conn = hook.get_conn()
     cursor= conn.cursor()
     cursor.execute("Select * from test")
